@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wedding Invitation</title>
+
+    <style>
+        body {
+            background: #ffe6f0;
+            font-family: Arial;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .icon {
+            font-size: 70px;
+            cursor: pointer;
+            background: pink;
+            width: 120px;
+            height: 120px;
+            line-height: 120px;
+            border-radius: 50%;
+            margin: auto;
+            transition: 0.3s;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+        }
+
+        .card {
+            display: none;
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Click to open your invitation 💌</h2>
+
+    <div class="icon" onclick="openInvite()">💌</div>
+
+    <div class="card" id="card">
+        <h2>You're Invited 💍</h2>
+        <p>To the wedding of</p>
+        <h3>Alex & Jamie</h3>
+
+        <p>📅 20 July 2026</p>
+        <p>📍 Paris, France</p>
+        <p>⏰ 5:00 PM</p>
+    </div>
+
+    <script>
+        function openInvite() {
+            document.getElementById("card").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
