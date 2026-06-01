@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Invitation de Mariage</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+}
+
+/* BACKGROUND FIXED (ALWAYS VISIBLE) */
+.bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80")
+    no-repeat center center;
+    background-size: cover;
+    z-index: -2;
+}
+
+/* SOFT OVERLAY */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    z-index: -1;
+}
+
+/* START SCREEN */
+#startScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+/* BUTTON */
+#startBtn {
+    padding: 18px 35px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff4d6d, #ffb3c1);
+    color: white;
+    box-shadow: 0 0 25px rgba(255,77,109,0.8);
+    position: absolute;
+    transition: left 1s ease, top 1s ease;
+}
+
+/* CONTENT */
+.card {
+    display: none;
+    margin-top: 60px;
+}
+
+h1 {
+    font-size: 52px;
+    color: #ffd6a5;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+/* RING */
+.ring {
+    margin: 40px auto;
+    width: 120px;
+    height: 120px;
+    border: 6px solid gold;
+    border-radius: 50%;
+    box-shadow: 0 0 25px gold, 0 0 60px rgba(255,215,0,0.5);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* INVITE */
+#invite {
+    display: none;
+    margin-top: 30px;
+}
+
+a {
+    color: #ffd6a5;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND ALWAYS ON -->
+<div class="bg"></div>
+<div class="overlay"></div>
+
+<!-- START -->
+<div id="startScreen">
+    <button id="startBtn">Clique pour révéler 💍</button>
+</div>
+
+<!-- CONTENT -->
+<div class="card">
+
+    <h1>Invitation de Mariage</h1>
+    <h2>Mohamed Ouni ❤️ Maryem Ben Bouabssa</h2>
+
+    <div class="ring"></div>
+
+    <p>✨ Vous êtes chaleureusement invités ✨</p>
+    <p><b>📅 29 Décembre 2026</b></p>
+
+    <div id="invite">
+        <h2>💍 Vous êtes invités !</h2>
+
+        <p>
+            📍 
+            <a href="https://www.google.com/maps/search/?api=1&query=Bouraoui+Festival+Hall+Rue+qualité+de+la+vie+maalga+Site+archéologique+de+Carthage+2046+Tunisia"
+               target="_blank">
+               Bouraoui Festival Hall, Carthage
+            </a>
+        </p>
+
+        <p>Rue qualité de la vie Maalga, Tunisia</p>
+
+        <div style="font-size:30px;">🌹 🌹 🌹</div>
+    </div>
+</div>
+
+<!-- ROMANTIC MUSIC -->
+<audio id="music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_d0c3f5b7b2.mp3?filename=romantic-piano-ambient-121241.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const startBtn = document.getElementById("startBtn");
+const startScreen = document.getElementById("startScreen");
+const card = document.querySelector(".card");
+const invite = document.getElementById("invite");
+const music = document.getElementById("music");
+
+let time = 0;
+let interval;
+
+/* MOVE BUTTON */
+function moveButton() {
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 120);
+    startBtn.style.left = x + "px";
+    startBtn.style.top = y + "px";
+}
+
+startBtn.addEventListener("click", () => {
+
+    music.volume = 0.7;
+    music.play().catch(() => {});
+
+    interval = setInterval(() => {
+
+        moveButton();
+        time++;
+
+        if (time >= 10) {
+
+            clearInterval(interval);
+
+            startScreen.style.display = "none";
+            card.style.display = "block";
+            invite.style.display = "block";
+        }
+
+    }, 1000);
+});
+</script>
+
+</body>
+</html>
