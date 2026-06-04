@@ -2,191 +2,380 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Invitation de Mariage</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-body {
-    margin: 0;
-    font-family: Georgia, serif;
-    text-align: center;
-    overflow: hidden;
-    color: white;
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* BACKGROUND FIXED (ALWAYS VISIBLE) */
-.bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80")
-    no-repeat center center;
-    background-size: cover;
-    z-index: -2;
+body{
+    font-family:'Playfair Display', serif;
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,182,193,0.10),
+        rgba(255,255,255,0.05)
+    );
 }
 
-/* SOFT OVERLAY */
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.45);
-    z-index: -1;
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg{
+    position:fixed;
+    inset:0;
+    background:url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
+    z-index:-2;
 }
 
-/* START SCREEN */
-#startScreen {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    z-index:-1;
 }
 
-/* BUTTON */
-#startBtn {
-    padding: 18px 35px;
-    font-size: 20px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    background: linear-gradient(45deg, #ff4d6d, #ffb3c1);
-    color: white;
-    box-shadow: 0 0 25px rgba(255,77,109,0.8);
-    position: absolute;
-    transition: left 1s ease, top 1s ease;
+/* =========================
+   START SCREEN
+========================= */
+
+#startScreen{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
 }
 
-/* CONTENT */
-.card {
-    display: none;
-    margin-top: 60px;
+#startBtn{
+    position:absolute;
+    padding:18px 35px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:18px;
+    color:white;
+
+    background:linear-gradient(45deg,#ff4d6d,#ffb3c1);
+
+    box-shadow:0 0 25px rgba(255,77,109,0.8);
+
+    transition:all 1s ease;
 }
 
-h1 {
-    font-size: 52px;
-    color: #ffd6a5;
+/* =========================
+   ENVELOPE
+========================= */
+
+#envelope{
+    font-size:90px;
+    transition:all 1s ease;
 }
 
-h2 {
-    font-size: 28px;
+#envelope.open{
+    transform:scale(2);
+    opacity:0;
 }
 
-/* RING */
-.ring {
-    margin: 40px auto;
-    width: 120px;
-    height: 120px;
-    border: 6px solid gold;
-    border-radius: 50%;
-    box-shadow: 0 0 25px gold, 0 0 60px rgba(255,215,0,0.5);
-    animation: shine 2s infinite;
+/* =========================
+   CARD
+========================= */
+
+.card{
+    display:none;
+
+    max-width:800px;
+    margin:40px auto;
+    padding:35px;
+
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+
+    border:2px solid rgba(255,105,180,0.7);
+
+    border-radius:25px;
+
+    box-shadow:
+        0 0 25px rgba(255,105,180,0.25),
+        0 0 60px rgba(255,182,193,0.15);
+
+    opacity:0;
+    transform:translateY(30px);
+    transition:1.2s ease;
 }
 
-@keyframes shine {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
+.card.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-/* INVITE */
-#invite {
-    display: none;
-    margin-top: 30px;
+/* =========================
+   TITLES
+========================= */
+
+h1{
+    font-family:'Great Vibes', cursive;
+    font-size:72px;
+    color:#ff69b4;
 }
 
-a {
-    color: #ffd6a5;
-    text-decoration: none;
+h2{
+    margin:10px 0;
 }
+
+/* =========================
+   RING
+========================= */
+
+.ring{
+    width:110px;
+    height:110px;
+    margin:25px auto;
+
+    border:6px solid #ff69b4;
+    border-radius:50%;
+
+    box-shadow:
+        0 0 20px #ff69b4,
+        0 0 40px rgba(255,105,180,0.4);
+}
+
+/* =========================
+   EVENT TIME
+========================= */
+
+.event-time{
+    margin:20px 0;
+    font-size:22px;
+    color:#ff69b4;
+    font-weight:bold;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+    display:inline-block;
+    margin:10px;
+    padding:14px 22px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.location{
+    background:#ffb6c1;
+    color:black;
+}
+
+.rsvp{
+    background:#ff69b4;
+    color:white;
+}
+
+/* =========================
+   ROSES
+========================= */
+
+.petal{
+    position:fixed;
+    top:-20px;
+    font-size:18px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    h1{font-size:50px;}
+
+    .card{width:92%; padding:25px;}
+
+    #startBtn{
+        font-size:16px;
+        padding:14px 25px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- BACKGROUND ALWAYS ON -->
 <div class="bg"></div>
 <div class="overlay"></div>
 
-<!-- START -->
+<!-- START SCREEN -->
 <div id="startScreen">
-    <button id="startBtn">Clique pour révéler 💍</button>
+
+    <div id="envelope">💌</div>
+
+    <button id="startBtn">
+        Ouvrir l’invitation 💍
+    </button>
+
 </div>
 
-<!-- CONTENT -->
-<div class="card">
+<!-- CARD -->
+<div class="card" id="card">
 
     <h1>Invitation de Mariage</h1>
-    <h2>Mohamed Ouni ❤️ Maryem Ben Bouabssa</h2>
+
+    <h2>Mohamed ❤️ Maryem</h2>
 
     <div class="ring"></div>
 
     <p>✨ Vous êtes chaleureusement invités ✨</p>
-    <p><b>📅 29 Décembre 2026</b></p>
 
-    <div id="invite">
-        <h2>💍 Vous êtes invités !</h2>
+    <h2>📅 29 Décembre 2026</h2>
 
-        <p>
-            📍 
-            <a href="https://www.google.com/maps/search/?api=1&query=Bouraoui+Festival+Hall+Rue+qualité+de+la+vie+maalga+Site+archéologique+de+Carthage+2046+Tunisia"
-               target="_blank">
-               Bouraoui Festival Hall, Carthage
-            </a>
-        </p>
+    <div id="countdown"></div>
 
-        <p>Rue qualité de la vie Maalga, Tunisia</p>
-
-        <div style="font-size:30px;">🌹 🌹 🌹</div>
+    <div class="event-time">
+        🕗 Début de la soirée : 20:00
     </div>
+
+    <!-- LOCATION -->
+    <a class="btn location"
+       href="https://maps.google.com/?q=Bouraoui+Festival+Hall+Carthage"
+       target="_blank">
+       📍 Localisation
+    </a>
+
+    <!-- RSVP (WORKING GOOGLE FORM) -->
+    <a class="btn rsvp"
+       href="https://docs.google.com/forms/d/e/1FAIpQLSd2NqUsF-L2Loc3kSUiZkRinkybHZgvTd-7pqks86YeWWSYDA/viewform"
+       target="_blank">
+       💌 Confirmer ma présence
+    </a>
+
+    <!-- 🎵 FIXED MUSIC (LOCAL FILE ONLY) -->
+    <audio id="music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
 </div>
 
-<!-- ROMANTIC MUSIC -->
-<audio id="music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_d0c3f5b7b2.mp3?filename=romantic-piano-ambient-121241.mp3" type="audio/mpeg">
-</audio>
-
 <script>
+
 const startBtn = document.getElementById("startBtn");
 const startScreen = document.getElementById("startScreen");
-const card = document.querySelector(".card");
-const invite = document.getElementById("invite");
+const card = document.getElementById("card");
+const envelope = document.getElementById("envelope");
 const music = document.getElementById("music");
 
-let time = 0;
-let interval;
+/* MOVING BUTTON */
+function moveButton(){
 
-/* MOVE BUTTON */
-function moveButton() {
-    const x = Math.random() * (window.innerWidth - 120);
-    const y = Math.random() * (window.innerHeight - 120);
-    startBtn.style.left = x + "px";
-    startBtn.style.top = y + "px";
+    const maxX = window.innerWidth - startBtn.offsetWidth;
+    const maxY = window.innerHeight - startBtn.offsetHeight;
+
+    startBtn.style.left = Math.random()*maxX + "px";
+    startBtn.style.top = Math.random()*maxY + "px";
 }
 
-startBtn.addEventListener("click", () => {
+setInterval(moveButton,1200);
 
-    music.volume = 0.7;
-    music.play().catch(() => {});
+/* OPEN INVITATION */
+function openInvitation(){
 
-    interval = setInterval(() => {
+    // MUSIC FIX (reliable)
+    music.volume = 0.6;
 
-        moveButton();
-        time++;
+    const playPromise = music.play();
 
-        if (time >= 10) {
+    if(playPromise !== undefined){
+        playPromise.catch(()=> {
+            console.log("Music blocked until user interaction");
+        });
+    }
 
-            clearInterval(interval);
+    envelope.classList.add("open");
 
-            startScreen.style.display = "none";
-            card.style.display = "block";
-            invite.style.display = "block";
-        }
+    setTimeout(()=>{
 
-    }, 1000);
-});
+        startScreen.style.display="none";
+        card.style.display="block";
+
+        setTimeout(()=>{
+            card.classList.add("show");
+        },100);
+
+        startRoses();
+        startCountdown();
+
+    },800);
+}
+
+startBtn.addEventListener("click",openInvitation);
+
+/* COUNTDOWN */
+const weddingDate = new Date("December 29, 2026 20:00:00");
+
+function startCountdown(){
+
+    const el = document.getElementById("countdown");
+
+    setInterval(()=>{
+
+        const now = new Date();
+        const diff = weddingDate - now;
+
+        const days = Math.floor(diff / 86400000);
+
+        el.innerHTML = `⏳ ${days} jours restants`;
+
+    },1000);
+}
+
+/* ROSES */
+function startRoses(){
+
+    setInterval(()=>{
+
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.innerHTML = "🌸";
+
+        petal.style.left = Math.random()*100 + "vw";
+        petal.style.fontSize = (15 + Math.random()*20) + "px";
+        petal.style.animationDuration = (4 + Math.random()*5) + "s";
+
+        document.body.appendChild(petal);
+
+        setTimeout(()=>petal.remove(),10000);
+
+    },500);
+}
+
 </script>
 
 </body>
