@@ -28,9 +28,22 @@ body{
 
     background: linear-gradient(
         135deg,
-        rgba(255,182,193,0.10),
+        rgba(255,215,0,0.08),
         rgba(255,255,255,0.05)
     );
+}
+
+/* gold ambient glow */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:radial-gradient(
+        circle at center,
+        rgba(255,215,0,0.12),
+        transparent 60%
+    );
+    z-index:-1;
 }
 
 /* =========================
@@ -75,16 +88,12 @@ body{
     color:white;
 
     background:linear-gradient(45deg,#ff4d6d,#ffb3c1);
-
     box-shadow:0 0 25px rgba(255,77,109,0.8);
 
     transition:all 1s ease;
 }
 
-/* =========================
-   ENVELOPE
-========================= */
-
+/* envelope */
 #envelope{
     font-size:90px;
     transition:all 1s ease;
@@ -96,26 +105,27 @@ body{
 }
 
 /* =========================
-   CARD
+   CARD (GOLD FRAME)
 ========================= */
 
 .card{
     display:none;
 
-    max-width:800px;
+    max-width:850px;
     margin:40px auto;
-    padding:35px;
+    padding:40px;
 
-    background:rgba(255,255,255,0.12);
-    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,0.10);
+    backdrop-filter:blur(14px);
 
-    border:2px solid rgba(255,105,180,0.7);
+    border:2px solid #ffd700; /* GOLD FRAME */
 
     border-radius:25px;
 
     box-shadow:
-        0 0 25px rgba(255,105,180,0.25),
-        0 0 60px rgba(255,182,193,0.15);
+        0 0 25px rgba(255,215,0,0.45),
+        0 0 70px rgba(255,215,0,0.25),
+        0 0 120px rgba(255,215,0,0.10);
 
     opacity:0;
     transform:translateY(30px);
@@ -128,44 +138,78 @@ body{
 }
 
 /* =========================
-   TITLES
+   TITLE (PINK)
 ========================= */
 
 h1{
     font-family:'Great Vibes', cursive;
-    font-size:72px;
-    color:#ff69b4;
+    font-size:80px;
+    color:#ff69b4; /* pink */
+    text-shadow:0 0 20px rgba(255,105,180,0.5);
 }
 
 h2{
+    font-size:28px;
     margin:10px 0;
 }
 
 /* =========================
-   RING
+   SMALL INCLINED HEART
 ========================= */
 
 .ring{
-    width:110px;
-    height:110px;
+    position:relative;
+    width:70px;
+    height:70px;
     margin:25px auto;
 
-    border:6px solid #ff69b4;
-    border-radius:50%;
+    transform:rotate(-25deg);
+    animation:heartbeat 1.8s infinite;
+}
+
+/* heart shape */
+.ring::before,
+.ring::after{
+    content:"";
+    position:absolute;
+    width:35px;
+    height:55px;
+
+    background:#ff69b4;
+
+    border-radius:35px 35px 0 0;
 
     box-shadow:
-        0 0 20px #ff69b4,
-        0 0 40px rgba(255,105,180,0.4);
+        0 0 15px rgba(255,105,180,0.8),
+        0 0 30px rgba(255,105,180,0.4);
+}
+
+.ring::before{
+    left:35px;
+    transform:rotate(-45deg);
+    transform-origin:0 100%;
+}
+
+.ring::after{
+    left:0;
+    transform:rotate(45deg);
+    transform-origin:100% 100%;
+}
+
+@keyframes heartbeat{
+    0%{ transform:scale(1) rotate(-25deg); }
+    50%{ transform:scale(1.12) rotate(-25deg); }
+    100%{ transform:scale(1) rotate(-25deg); }
 }
 
 /* =========================
-   EVENT TIME
+   EVENT TEXT
 ========================= */
 
 .event-time{
     margin:20px 0;
-    font-size:22px;
-    color:#ff69b4;
+    font-size:24px;
+    color:#ffd700;
     font-weight:bold;
 }
 
@@ -183,17 +227,17 @@ h2{
 }
 
 .location{
-    background:#ffb6c1;
+    background:#ffd700;
     color:black;
 }
 
 .rsvp{
-    background:#ff69b4;
-    color:white;
+    background:#ffb84d;
+    color:black;
 }
 
 /* =========================
-   ROSES
+   FLOWERS
 ========================= */
 
 .petal{
@@ -215,13 +259,21 @@ h2{
 
 @media(max-width:768px){
 
-    h1{font-size:50px;}
+    h1{font-size:55px;}
+    h2{font-size:22px;}
 
-    .card{width:92%; padding:25px;}
+    .card{
+        width:92%;
+        padding:25px;
+    }
 
     #startBtn{
         font-size:16px;
         padding:14px 25px;
+    }
+
+    .event-time{
+        font-size:20px;
     }
 }
 
@@ -233,7 +285,7 @@ h2{
 <div class="bg"></div>
 <div class="overlay"></div>
 
-<!-- START SCREEN -->
+<!-- START -->
 <div id="startScreen">
 
     <div id="envelope">💌</div>
@@ -251,9 +303,12 @@ h2{
 
     <h2>Mohamed ❤️ Maryem</h2>
 
+    <!-- SMALL PINK HEART -->
     <div class="ring"></div>
 
-    <p>✨ Vous êtes chaleureusement invités ✨</p>
+    <p style="font-size:22px;">
+        ✨ Vous êtes chaleureusement invités ✨
+    </p>
 
     <h2>📅 29 Décembre 2026</h2>
 
@@ -270,14 +325,14 @@ h2{
        📍 Localisation
     </a>
 
-    <!-- RSVP (WORKING GOOGLE FORM) -->
+    <!-- RSVP -->
     <a class="btn rsvp"
        href="https://docs.google.com/forms/d/e/1FAIpQLSd2NqUsF-L2Loc3kSUiZkRinkybHZgvTd-7pqks86YeWWSYDA/viewform"
        target="_blank">
        💌 Confirmer ma présence
     </a>
 
-    <!-- 🎵 FIXED MUSIC (LOCAL FILE ONLY) -->
+    <!-- MUSIC -->
     <audio id="music" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
@@ -286,15 +341,14 @@ h2{
 
 <script>
 
+/* BUTTON MOVE */
 const startBtn = document.getElementById("startBtn");
 const startScreen = document.getElementById("startScreen");
 const card = document.getElementById("card");
 const envelope = document.getElementById("envelope");
 const music = document.getElementById("music");
 
-/* MOVING BUTTON */
 function moveButton(){
-
     const maxX = window.innerWidth - startBtn.offsetWidth;
     const maxY = window.innerHeight - startBtn.offsetHeight;
 
@@ -304,24 +358,15 @@ function moveButton(){
 
 setInterval(moveButton,1200);
 
-/* OPEN INVITATION */
+/* OPEN */
 function openInvitation(){
 
-    // MUSIC FIX (reliable)
     music.volume = 0.6;
-
-    const playPromise = music.play();
-
-    if(playPromise !== undefined){
-        playPromise.catch(()=> {
-            console.log("Music blocked until user interaction");
-        });
-    }
+    music.play().catch(()=>{});
 
     envelope.classList.add("open");
 
     setTimeout(()=>{
-
         startScreen.style.display="none";
         card.style.display="block";
 
@@ -356,18 +401,18 @@ function startCountdown(){
     },1000);
 }
 
-/* ROSES */
+/* FLOWERS */
 function startRoses(){
 
     setInterval(()=>{
 
         const petal = document.createElement("div");
-        petal.className = "petal";
-        petal.innerHTML = "🌸";
+        petal.className="petal";
+        petal.innerHTML="🌸";
 
-        petal.style.left = Math.random()*100 + "vw";
-        petal.style.fontSize = (15 + Math.random()*20) + "px";
-        petal.style.animationDuration = (4 + Math.random()*5) + "s";
+        petal.style.left=Math.random()*100+"vw";
+        petal.style.fontSize=(15+Math.random()*20)+"px";
+        petal.style.animationDuration=(4+Math.random()*5)+"s";
 
         document.body.appendChild(petal);
 
