@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet" />
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
   <style>
@@ -87,7 +88,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100svh;
+      min-height: 100vh;
+      min-height: 100dvh;
       overflow: hidden;
       padding: clamp(18px, 4vw, 24px);
       perspective: 1400px;
@@ -298,7 +300,10 @@
         repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 7px);
     }
 
-    .fold-left,.fold-right,.fold-bottom,.fold-top {
+    .fold-left,
+    .fold-right,
+    .fold-bottom,
+    .fold-top {
       position: absolute;
       inset: 0;
       pointer-events: none;
@@ -614,7 +619,8 @@
 
     #main {
       display: none;
-      min-height: 100svh;
+      min-height: 100vh;
+      min-height: 100dvh;
       padding-bottom: max(90px, calc(90px + var(--safe-bottom)));
       position: relative;
       overflow: hidden;
@@ -1047,14 +1053,6 @@
       font-size: 1.1rem;
     }
 
-    iframe {
-      width: 100%;
-      height: clamp(230px, 58vw, 270px);
-      margin-top: 10px;
-      border: none;
-      border-radius: 18px;
-    }
-
     .map-note {
       margin-top: 12px;
       font-size: 1rem;
@@ -1094,12 +1092,12 @@
 
     .particle {
       position: fixed;
-      width: 5px;
-      height: 5px;
+      width: 3px;
+      height: 3px;
       border-radius: 50%;
       background: var(--gold);
-      opacity: 0.55;
-      animation: rise 7s linear infinite;
+      opacity: 0.45;
+      animation: rise 8s linear infinite;
       pointer-events: none;
       z-index: 0;
     }
@@ -1123,15 +1121,57 @@
     }
 
     @media (max-width: 600px) {
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+
+      #openingScene,
+      #main {
+        min-height: 100vh;
+        min-height: 100dvh;
+      }
+
       #openingScene {
         padding: 18px 12px;
         align-items: center;
+      }
+
+      .ambient-glow {
+        display: none;
+      }
+
+      .moon-glow,
+      .inside-moon {
+        filter: blur(1px);
+      }
+
+      .letter-shadow {
+        filter: blur(10px);
+      }
+
+      .carthage-arches,
+      .palace-silhouette {
+        filter: none;
+      }
+
+      .inside-chandelier {
+        display: none;
       }
 
       .letter-stage {
         width: min(92vw, 390px);
         height: 300px;
         min-height: 300px;
+      }
+
+      .closed-envelope,
+      .inner-paper,
+      .card {
+        box-shadow: 0 8px 24px rgba(0,0,0,0.16);
       }
 
       .inner-paper {
@@ -1278,33 +1318,8 @@
         top: 50px;
       }
 
-      .inside-chandelier {
-        width: 95px;
-        height: 150px;
-        opacity: 0.45;
-      }
-
-      .chandelier-left {
-        left: 2%;
-      }
-
-      .chandelier-right {
-        right: 2%;
-      }
-
-      .chain {
-        height: 55px;
-      }
-
-      .chandelier-body {
-        top: 50px;
-        width: 95px;
-        height: 80px;
-      }
-
-      .chandelier-body span {
-        width: 12px;
-        height: 24px;
+      .particle {
+        animation-duration: 10s;
       }
     }
 
@@ -1460,15 +1475,13 @@
     <section class="card">
       <h2>Location</h2>
 
-      <iframe
-        src="https://maps.google.com/maps?q=Dar%20Bouarai%20Carthage%20Tunisia&t=&z=16&ie=UTF8&iwloc=&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Dar Bouarai Carthage Tunisia map">
-      </iframe>
+      <p>
+        <strong>Dar Bouarai</strong><br>
+        Carthage, Tunisia
+      </p>
 
       <p class="map-note">
-        If the map does not open correctly on Android, please use the button below.
+        Tap the button below to open the location directly in Google Maps.
       </p>
 
       <a
@@ -1486,7 +1499,7 @@
     <input type="range" min="0" max="1" step="0.1" value="0.5" onchange="volume(this.value)">
   </div>
 
-  <audio id="audio" src="music.mp3" loop preload="auto"></audio>
+  <audio id="audio" src="music.mp3" loop preload="none"></audio>
 
   <script>
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKa-6MNVQvIoSk3RDmHDQhHvmS2Q-6-jnHaAt359yrCSyyZHTvOkIhmIwOzuql4Fb6/exec";
@@ -1521,6 +1534,7 @@
       if (started) return;
       started = true;
 
+      const isMobile = window.innerWidth < 600;
       const audio = document.getElementById("audio");
       const button = document.getElementById("musicButton");
 
@@ -1542,17 +1556,17 @@
       });
 
       tl.to("#waxSeal", {
-        scale: 1.35,
+        scale: isMobile ? 1.18 : 1.35,
         opacity: 0,
         rotation: 18,
-        duration: 0.45,
+        duration: isMobile ? 0.35 : 0.45,
         ease: "power2.inOut"
       }, "-=0.05");
 
       tl.to("#foldTop", {
         rotationX: -178,
-        y: -14,
-        duration: 1.05,
+        y: isMobile ? -8 : -14,
+        duration: isMobile ? 0.75 : 1.05,
         ease: "power3.inOut"
       }, "-=0.05");
 
@@ -1562,42 +1576,42 @@
 
       tl.to("#innerPaper", {
         opacity: 1,
-        y: -168,
+        y: isMobile ? -125 : -168,
         scale: 1,
-        duration: 1.05,
+        duration: isMobile ? 0.75 : 1.05,
         ease: "power3.out"
       }, "-=0.18");
 
       tl.to("#paperContent", {
         opacity: 1,
         y: 0,
-        duration: 0.65,
+        duration: isMobile ? 0.45 : 0.65,
         ease: "power2.out"
       }, "-=0.35");
 
       tl.to(".fold-line-horizontal, .fold-line-left, .fold-line-right, .gold-border, .arabesque-strip, .corner-ornament", {
         opacity: 0.25,
-        duration: 0.45,
+        duration: 0.35,
         ease: "power2.out"
-      }, "-=0.75");
+      }, "-=0.55");
 
       tl.to("#letterStage", {
-        scale: 1.08,
-        duration: 0.45,
+        scale: isMobile ? 1.04 : 1.08,
+        duration: 0.35,
         ease: "power2.out"
-      }, "-=0.45");
+      }, "-=0.35");
 
       tl.to("#letterStage", {
-        scale: 1.24,
+        scale: isMobile ? 1.08 : 1.24,
         opacity: 0,
-        y: -80,
-        duration: 0.95,
-        ease: "power3.inOut"
-      }, "+=0.75");
+        y: isMobile ? -40 : -80,
+        duration: isMobile ? 0.55 : 0.95,
+        ease: "power2.inOut"
+      }, "+=0.5");
 
       tl.to("#openingScene", {
         opacity: 0,
-        duration: 0.75,
+        duration: isMobile ? 0.5 : 0.75,
         ease: "power2.inOut",
         onComplete: function () {
           document.getElementById("openingScene").style.display = "none";
@@ -1605,18 +1619,18 @@
           document.getElementById("musicBox").style.display = "flex";
 
           gsap.from(".hero", {
-            y: 50,
+            y: isMobile ? 25 : 50,
             opacity: 0,
-            duration: 1,
+            duration: isMobile ? 0.65 : 1,
             ease: "power3.out"
           });
 
           gsap.from(".card", {
-            y: 45,
+            y: isMobile ? 24 : 45,
             opacity: 0,
-            duration: 1,
-            stagger: 0.18,
-            delay: 0.25,
+            duration: isMobile ? 0.65 : 1,
+            stagger: isMobile ? 0.08 : 0.18,
+            delay: 0.15,
             ease: "power3.out"
           });
         }
@@ -1698,14 +1712,14 @@
     }
 
     function createParticles() {
-      const count = window.innerWidth < 600 ? 26 : 44;
+      const count = window.innerWidth < 600 ? 8 : 28;
 
       for (let i = 0; i < count; i++) {
         const p = document.createElement("div");
         p.className = "particle";
         p.style.left = Math.random() * 100 + "vw";
         p.style.top = Math.random() * 100 + "vh";
-        p.style.animationDuration = (4 + Math.random() * 6) + "s";
+        p.style.animationDuration = (6 + Math.random() * 6) + "s";
         p.style.animationDelay = Math.random() * 4 + "s";
         document.body.appendChild(p);
       }
@@ -1714,4 +1728,3 @@
 
 </body>
 </html>
-``
