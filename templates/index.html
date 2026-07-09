@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Mohamed ♥ Mariem | Wedding Invitation</title>
-
-  <meta name="description" content="Mohamed & Mariem Wedding Invitation - 29 December 2026" />
-  <meta property="og:title" content="Wedding Invitation" />
+  <title>Mohamed ♥ Mari <meta property="og:title" content="Wedding Invitation" />  <title>Mohamed ♥ Mariem | Wedding Invitation</title>
   <meta property="og:description" content="Mohamed ♥ Mariem - 29 December 2026" />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Great+Vibes&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap"
     rel="stylesheet"
   />
 
@@ -32,7 +29,6 @@
       --gold: #c8ad67;
       --gold-deep: #a88945;
       --gold-light: #ead9a8;
-      --gold-soft: #d8c89a;
 
       --text-dark: #2f3a31;
       --text-muted: #687467;
@@ -293,7 +289,6 @@
 
     /* =========================
        MAIN BACKGROUND
-       Sage, gold, Tunisian/Carthaginian-inspired pattern
     ========================= */
 
     #main {
@@ -397,7 +392,7 @@
     }
 
     /* =========================
-       CARDS / FRAMES
+       CARDS
     ========================= */
 
     .card {
@@ -838,7 +833,6 @@
         <path d="M70 188 C38 170, 34 137, 73 127 C112 139, 106 177, 70 188Z" fill="url(#leafSage1)" opacity="0.75"/>
         <path d="M112 147 C76 126, 78 91, 119 84 C154 103, 147 137, 112 147Z" fill="url(#leafSage1)" opacity="0.68"/>
         <path d="M165 105 C137 76, 149 45, 190 50 C218 78, 202 104, 165 105Z" fill="url(#leafSage1)" opacity="0.66"/>
-        <path d="M202 82 C183 45, 205 20, 241 38 C255 74, 233 93, 202 82Z" fill="url(#leafSage1)" opacity="0.62"/>
 
         <g transform="translate(74 83)">
           <ellipse cx="50" cy="42" rx="24" ry="42" fill="url(#petalWhite1)" transform="rotate(-35 50 42)"/>
@@ -857,10 +851,6 @@
           <circle cx="55" cy="55" r="18" fill="#fffdf7"/>
           <circle cx="55" cy="55" r="7" fill="#d6bd78"/>
         </g>
-
-        <circle cx="58" cy="205" r="9" fill="#ffffff" opacity="0.9"/>
-        <circle cx="83" cy="178" r="7" fill="#ffffff" opacity="0.88"/>
-        <circle cx="205" cy="62" r="7" fill="#ffffff" opacity="0.88"/>
       </svg>
 
       <!-- White floral decoration - bottom right -->
@@ -881,7 +871,6 @@
         <path d="M70 188 C38 170, 34 137, 73 127 C112 139, 106 177, 70 188Z" fill="url(#leafSage2)" opacity="0.75"/>
         <path d="M112 147 C76 126, 78 91, 119 84 C154 103, 147 137, 112 147Z" fill="url(#leafSage2)" opacity="0.68"/>
         <path d="M165 105 C137 76, 149 45, 190 50 C218 78, 202 104, 165 105Z" fill="url(#leafSage2)" opacity="0.66"/>
-        <path d="M202 82 C183 45, 205 20, 241 38 C255 74, 233 93, 202 82Z" fill="url(#leafSage2)" opacity="0.62"/>
 
         <g transform="translate(74 83)">
           <ellipse cx="50" cy="42" rx="24" ry="42" fill="url(#petalWhite2)" transform="rotate(-35 50 42)"/>
@@ -891,19 +880,6 @@
           <circle cx="55" cy="55" r="18" fill="#fffdf7"/>
           <circle cx="55" cy="55" r="7" fill="#d6bd78"/>
         </g>
-
-        <g transform="translate(142 36) scale(0.82)">
-          <ellipse cx="50" cy="42" rx="24" ry="42" fill="url(#petalWhite2)" transform="rotate(-35 50 42)"/>
-          <ellipse cx="74" cy="47" rx="24" ry="42" fill="url(#petalWhite2)" transform="rotate(25 74 47)"/>
-          <ellipse cx="58" cy="68" rx="26" ry="42" fill="url(#petalWhite2)" transform="rotate(85 58 68)"/>
-          <ellipse cx="36" cy="61" rx="23" ry="38" fill="url(#petalWhite2)" transform="rotate(-85 36 61)"/>
-          <circle cx="55" cy="55" r="18" fill="#fffdf7"/>
-          <circle cx="55" cy="55" r="7" fill="#d6bd78"/>
-        </g>
-
-        <circle cx="58" cy="205" r="9" fill="#ffffff" opacity="0.9"/>
-        <circle cx="83" cy="178" r="7" fill="#ffffff" opacity="0.88"/>
-        <circle cx="205" cy="62" r="7" fill="#ffffff" opacity="0.88"/>
       </svg>
 
       <div class="cover-content">
@@ -1100,8 +1076,11 @@
     <button type="button" onclick="toggleMusic()" id="musicButton">▶</button>
   </div>
 
-  <!-- Music file: index.html and music.mp3 must be in the same templates folder -->
-  <audio id="audio" src="music.mp3" preload="auto" loop></audio>
+  <!-- Correct Flask static music path -->
+  <audio id="audio" preload="auto" loop>
+    <source src="{{ url_for('static', filename='music.mp3') }}" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
   <script>
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKa-6MNVQvIoSk3RDmHDQhHvmS2Q-6-jnHaAt359yrCSyyZHTvOkIhmIwOzuql4Fb6/exec";
@@ -1132,6 +1111,24 @@
           musicButton.innerText = "▶";
           console.log("Audio play error:", error);
         });
+    }
+
+    function toggleMusic() {
+      const audio = document.getElementById("audio");
+      const button = document.getElementById("musicButton");
+
+      if (audio.paused) {
+        audio.play()
+          .then(function () {
+            button.innerText = "❚❚";
+          })
+          .catch(function (error) {
+            console.log("Audio play error:", error);
+          });
+      } else {
+        audio.pause();
+        button.innerText = "▶";
+      }
     }
 
     function countdown() {
@@ -1194,25 +1191,9 @@
       document.getElementById("guests").value = "";
       document.getElementById("attend").value = "I will attend";
     }
-
-    function toggleMusic() {
-      const audio = document.getElementById("audio");
-      const button = document.getElementById("musicButton");
-
-      if (audio.paused) {
-        audio.play()
-          .then(function () {
-            button.innerText = "❚❚";
-          })
-          .catch(function (error) {
-            console.log("Audio play error:", error);
-          });
-      } else {
-        audio.pause();
-        button.innerText = "▶";
-      }
-    }
   </script>
 
 </body>
 </html>
+
+  <meta name="description" content="Mohamed & Mariem Wedding Invitation - 29 December 2026" />
