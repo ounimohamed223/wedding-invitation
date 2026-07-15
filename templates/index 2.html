@@ -1,0 +1,1414 @@
+YPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Mohamed ♥ Mari <meta property="og:title" content="Wedding Invitation" />  <title>Mohamed ♥ Mariem | Wedding Invitation</title>
+  <meta property="og:description" content="Mohamed ♥ Mariem - 29 December 2026" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --sage-dark: #4f6652;
+      --sage: #7f987f;
+      --sage-soft: #aebfad;
+      --sage-light: #dfe8dc;
+      --sage-mist: #f3f7f0;
+
+      --ivory: #fffdf8;
+      --warm-ivory: #faf7ee;
+      --white: #ffffff;
+
+      --gold: #c8ad67;
+      --gold-deep: #a88945;
+      --gold-light: #ead9a8;
+
+      --text-dark: #2f3a31;
+      --text-muted: #687467;
+
+      --shadow: rgba(47, 58, 49, 0.15);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: var(--sage-mist);
+      color: var(--text-dark);
+      font-family: 'Cormorant Garamond', serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* =========================
+       COVER
+    ========================= */
+
+    #cover {
+      min-height: 100svh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(18px, 4vw, 34px);
+      background:
+        radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.85), transparent 28%),
+        radial-gradient(circle at 82% 82%, rgba(255, 255, 255, 0.65), transparent 30%),
+        linear-gradient(135deg, #7f987f 0%, #b8c9b1 48%, #eef4eb 100%);
+    }
+
+    .cover-card {
+      position: relative;
+      width: min(94vw, 740px);
+      min-height: min(86svh, 860px);
+      padding: clamp(42px, 7vw, 76px) clamp(26px, 6vw, 58px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.88);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.36), rgba(255,255,255,0.18)),
+        linear-gradient(135deg, rgba(127,152,127,0.72), rgba(223,232,220,0.9));
+      box-shadow:
+        0 30px 90px rgba(47, 58, 49, 0.24),
+        inset 0 0 0 12px rgba(255, 255, 255, 0.13);
+    }
+
+    .cover-card::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .cover-card::after {
+      content: "";
+      position: absolute;
+      inset: 34px;
+      border-radius: 22px;
+      border: 1px solid rgba(232, 214, 166, 0.72);
+      box-shadow:
+        inset 0 0 0 1px rgba(168, 137, 69, 0.18),
+        0 0 28px rgba(255, 255, 255, 0.12);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .gold-corner {
+      position: absolute;
+      width: 76px;
+      height: 76px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .gold-corner::before,
+    .gold-corner::after {
+      content: "";
+      position: absolute;
+      border-color: rgba(232, 214, 166, 0.9);
+      border-style: solid;
+    }
+
+    .gold-corner::before {
+      inset: 0;
+      border-width: 2px 0 0 2px;
+      border-radius: 18px 0 0 0;
+    }
+
+    .gold-corner::after {
+      inset: 12px;
+      border-width: 1px 0 0 1px;
+      border-radius: 13px 0 0 0;
+    }
+
+    .corner-top-left {
+      top: 34px;
+      left: 34px;
+    }
+
+    .corner-top-right {
+      top: 34px;
+      right: 34px;
+      transform: rotate(90deg);
+    }
+
+    .corner-bottom-right {
+      bottom: 34px;
+      right: 34px;
+      transform: rotate(180deg);
+    }
+
+    .corner-bottom-left {
+      bottom: 34px;
+      left: 34px;
+      transform: rotate(270deg);
+    }
+
+    .flower-svg {
+      position: absolute;
+      width: clamp(170px, 34vw, 280px);
+      height: auto;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.96;
+      filter: drop-shadow(0 12px 24px rgba(47, 58, 49, 0.16));
+    }
+
+    .flower-top-left {
+      top: -18px;
+      left: -18px;
+    }
+
+    .flower-bottom-right {
+      right: -18px;
+      bottom: -18px;
+      transform: rotate(180deg);
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 4;
+      max-width: 520px;
+    }
+
+    .cover-kicker {
+      margin-bottom: 22px;
+      color: rgba(255, 255, 255, 0.96);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.82rem, 2.8vw, 0.98rem);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .cover-names {
+      color: var(--white);
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(4.4rem, 16vw, 8rem);
+      font-weight: 400;
+      line-height: 0.92;
+      text-shadow: 0 16px 36px rgba(47, 58, 49, 0.22);
+    }
+
+    .gold-ornament {
+      margin: 22px auto 20px;
+      color: var(--gold-light);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 4vw, 1.45rem);
+      letter-spacing: 9px;
+      text-shadow: 0 6px 15px rgba(47, 58, 49, 0.15);
+    }
+
+    .cover-divider {
+      width: min(190px, 48vw);
+      height: 1px;
+      margin: 18px auto 24px;
+      background: linear-gradient(90deg, transparent, rgba(234, 217, 168, 0.95), transparent);
+    }
+
+    .cover-subtitle {
+      max-width: 470px;
+      margin: 0 auto 32px;
+      color: rgba(255, 255, 255, 0.96);
+      font-size: clamp(1.22rem, 4vw, 1.52rem);
+      line-height: 1.55;
+    }
+
+    .cover-date {
+      margin-bottom: 34px;
+      color: rgba(255, 255, 255, 0.93);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.92rem, 3vw, 1.05rem);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .open-button {
+      width: auto;
+      min-width: 230px;
+      padding: 15px 32px;
+      border: 1px solid rgba(234, 217, 168, 0.95);
+      border-radius: 999px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.98), rgba(250,247,238,0.94));
+      color: var(--sage-dark);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      box-shadow:
+        0 16px 36px rgba(47, 58, 49, 0.20),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+    }
+
+    .open-button:hover {
+      color: #3d513f;
+      background: var(--white);
+      border-color: var(--gold-light);
+    }
+
+    /* =========================
+       MAIN BACKGROUND
+    ========================= */
+
+    #main {
+      display: none;
+      min-height: 100svh;
+      padding-bottom: max(70px, calc(70px + var(--safe-bottom)));
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(255,255,255,0.96), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(223,232,220,0.94), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(200,173,103,0.16), transparent 48%),
+        linear-gradient(135deg, var(--ivory), var(--sage-mist) 58%, #dce8d9);
+    }
+
+    #main::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.25;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          rgba(168, 137, 69, 0.18) 0px,
+          rgba(168, 137, 69, 0.18) 1px,
+          transparent 1px,
+          transparent 24px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(79, 102, 82, 0.14) 0px,
+          rgba(79, 102, 82, 0.14) 1px,
+          transparent 1px,
+          transparent 24px
+        );
+    }
+
+    #main::after {
+      content: "";
+      position: fixed;
+      left: 50%;
+      bottom: -55px;
+      width: min(900px, 120vw);
+      height: 250px;
+      transform: translateX(-50%);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.16;
+      background:
+        radial-gradient(ellipse at center top, transparent 0 32%, rgba(79,102,82,0.5) 33% 35%, transparent 36%),
+        radial-gradient(ellipse at 20% 100%, rgba(168,137,69,0.34), transparent 40%),
+        radial-gradient(ellipse at 80% 100%, rgba(168,137,69,0.34), transparent 40%);
+      border-top: 2px solid rgba(168, 137, 69, 0.32);
+      border-radius: 48% 48% 0 0;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 2;
+      width: min(94%, 890px);
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align: center;
+      padding: clamp(72px, 13vw, 112px) 18px clamp(34px, 7vw, 58px);
+    }
+
+    .hero-label {
+      margin-bottom: 18px;
+      color: var(--sage);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.78rem, 2.7vw, 0.95rem);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      color: var(--sage-dark);
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(4.1rem, 15vw, 7.2rem);
+      font-weight: 400;
+      line-height: 0.92;
+    }
+
+    .divider {
+      width: min(180px, 46vw);
+      height: 1px;
+      margin: 24px auto;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .date {
+      color: var(--text-muted);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(0.95rem, 3.5vw, 1.08rem);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .card {
+      position: relative;
+      width: 100%;
+      margin: clamp(22px, 6vw, 34px) auto;
+      padding: clamp(34px, 6vw, 52px) clamp(22px, 5vw, 42px);
+      overflow: hidden;
+      border-radius: 32px;
+      border: 1px solid rgba(127, 152, 127, 0.32);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.97), rgba(250,247,238,0.94));
+      box-shadow:
+        0 20px 52px var(--shadow),
+        inset 0 0 0 1px rgba(255,255,255,0.7);
+      text-align: center;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border-radius: 24px;
+      border: 1px solid rgba(200, 173, 103, 0.42);
+      pointer-events: none;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      width: 110px;
+      height: 1px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, rgba(200, 173, 103, 0.9), transparent);
+      pointer-events: none;
+    }
+
+    .card h2 {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 20px;
+      color: var(--sage-dark);
+      font-size: clamp(1.55rem, 5vw, 2rem);
+    }
+
+    .card p {
+      position: relative;
+      z-index: 2;
+      color: var(--text-dark);
+      font-size: clamp(1.08rem, 4vw, 1.25rem);
+      line-height: 1.75;
+    }
+
+    .small-flower {
+      position: relative;
+      z-index: 2;
+      display: block;
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .card-flower {
+      position: absolute;
+      width: 135px;
+      height: 135px;
+      pointer-events: none;
+      opacity: 0.72;
+      z-index: 1;
+      filter: drop-shadow(0 8px 16px rgba(47,58,49,0.10));
+    }
+
+    .card-flower-top {
+      top: -28px;
+      left: -26px;
+    }
+
+    .card-flower-bottom {
+      right: -26px;
+      bottom: -28px;
+      transform: rotate(180deg);
+    }
+
+    /* =========================
+       FANCY CALENDAR
+    ========================= */
+
+    .calendar-card {
+      background:
+        radial-gradient(circle at 20% 0%, rgba(234,217,168,0.20), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,247,238,0.94));
+    }
+
+   .real-calendar {
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 28px;
+  overflow: hidden;
+  background: white;
+  border: 1px solid rgba(200,173,103,0.35);
+
+  box-shadow:
+    0 20px 50px rgba(47,58,49,0.15),
+    inset 0 0 0 1px rgba(255,255,255,0.7);
+}
+
+.calendar-top {
+  background: linear-gradient(135deg,
+      var(--sage-dark),
+      var(--sage));
+  color: white;
+  text-align: center;
+  padding: 22px;
+}
+
+.calendar-top span {
+  display:block;
+  font-size:1.8rem;
+  letter-spacing:2px;
+}
+
+.calendar-top strong {
+  display:block;
+  font-size:1rem;
+  letter-spacing:4px;
+}
+
+.calendar-weekdays {
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  background:#f5f7f4;
+}
+
+.calendar-weekdays div {
+  padding:12px;
+  text-align:center;
+  font-weight:600;
+  color:var(--sage-dark);
+}
+
+.calendar-grid {
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:1px;
+  background:#ececec;
+}
+
+.calendar-grid div {
+  background:white;
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  color:var(--text-dark);
+}
+
+.calendar-grid .empty {
+  background:#fafafa;
+}
+.calendar-rings {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin-bottom: 12px;
+}
+
+.calendar-rings span {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: white;
+    box-shadow:
+      0 0 0 4px rgba(255,255,255,0.25);
+}
+.bank-details {
+    font-family: 'Courier New', monospace;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #1f1f1f;
+    word-break: break-word;
+}
+.wedding-day {
+  position:relative;
+  background:
+    linear-gradient(135deg,
+    #d8c07d,
+    #b8934f) !important;
+
+  color:white !important;
+  font-weight:700;
+  font-size:1.2rem !important;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,0.4),
+    0 6px 16px rgba(168,137,69,0.35);
+}
+.gift-card {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,0.98),
+        rgba(250,247,238,0.95)
+      );
+}
+
+.gift-text {
+    max-width: 520px;
+    margin: 0 auto 25px;
+}
+
+.gift-button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 999px;
+
+    background:
+      linear-gradient(
+        135deg,
+        var(--sage),
+        var(--sage-dark)
+      );
+
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+
+    box-shadow:
+      0 12px 25px rgba(79,102,82,0.22);
+}
+
+.gift-button:hover {
+    background:
+      linear-gradient(
+        135deg,
+        var(--gold-deep),
+        var(--sage-dark)
+      );
+}
+
+.gift-details {
+    display: none;
+    margin-top: 25px;
+    padding: 22px;
+
+    border-radius: 18px;
+
+    background:
+      rgba(243,247,240,0.9);
+
+    border: 1px solid rgba(200,173,103,0.35);
+}
+
+.gift-details p {
+    margin-bottom: 15px;
+}
+
+.wedding-day span {
+  position:absolute;
+  bottom:6px;
+  right:8px;
+  font-size:0.75rem;
+}
+
+.calendar-event {
+  padding:18px;
+  text-align:center;
+  background:#faf7ee;
+  color:var(--sage-dark);
+  font-family:'Playfair Display', serif;
+  font-size:1.05rem;
+}
+
+    /* =========================
+       COUNTDOWN
+    ========================= */
+
+    .countdown {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .countdown div {
+      min-width: 0;
+      padding: 16px 10px;
+      border-radius: 18px;
+      border: 1px solid rgba(200, 173, 103, 0.34);
+      background: rgba(242, 246, 239, 0.82);
+      color: var(--text-muted);
+      font-size: clamp(0.86rem, 3vw, 1rem);
+    }
+
+    .countdown span {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--sage-dark);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 7vw, 2.25rem);
+      font-weight: 600;
+    }
+
+    form {
+      position: relative;
+      z-index: 2;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 52px;
+      margin: 10px 0;
+      padding: 14px 16px;
+      border: 1px solid rgba(127, 152, 127, 0.34);
+      border-radius: 16px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--text-dark);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.08rem;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200, 173, 103, 0.16);
+    }
+
+    .primary-button,
+    .map-button {
+      width: 100%;
+      min-height: 52px;
+      margin-top: 14px;
+      padding: 14px 18px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 28px rgba(79, 102, 82, 0.22);
+    }
+
+    .primary-button:hover,
+    .map-button:hover {
+      background: linear-gradient(135deg, var(--gold-deep), var(--sage-dark));
+    }
+
+    #thanks {
+      margin-top: 16px;
+      color: var(--sage-dark);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    iframe {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: clamp(240px, 58vw, 310px);
+      margin-top: 10px;
+      border: none;
+      border-radius: 22px;
+    }
+
+    .map-note {
+      margin-top: 14px;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    .footer-note {
+      padding: 34px 20px 10px;
+      text-align: center;
+      color: var(--sage-dark);
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    /* =========================
+       MUSIC PLAYER
+    ========================= */
+
+    .music-player {
+      position: fixed;
+      right: max(18px, calc(16px + var(--safe-right)));
+      bottom: max(18px, calc(16px + var(--safe-bottom)));
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1px solid rgba(200, 173, 103, 0.55);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 12px 30px rgba(47, 58, 49, 0.18);
+    }
+
+    .music-player button {
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+      color: var(--white);
+      font-size: 1rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 720px) {
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cover-card {
+        min-height: 84svh;
+      }
+
+      .calendar-body {
+        grid-template-columns: 1fr;
+      }
+
+      .calendar-side {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cover-card {
+        border-radius: 28px;
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .cover-card::before {
+        inset: 14px;
+      }
+
+      .cover-card::after {
+        inset: 26px;
+      }
+
+      .gold-corner {
+        width: 58px;
+        height: 58px;
+      }
+
+      .corner-top-left,
+      .corner-top-right {
+        top: 24px;
+      }
+
+      .corner-bottom-left,
+      .corner-bottom-right {
+        bottom: 24px;
+      }
+
+      .corner-top-left,
+      .corner-bottom-left {
+        left: 24px;
+      }
+
+      .corner-top-right,
+      .corner-bottom-right {
+        right: 24px;
+      }
+
+      .flower-svg {
+        width: 175px;
+        opacity: 0.82;
+      }
+
+      .card-flower {
+        width: 105px;
+        height: 105px;
+        opacity: 0.56;
+      }
+
+      .open-button {
+        width: 100%;
+      }
+
+      .card {
+        border-radius: 24px;
+      }
+
+      .card::before {
+        inset: 10px;
+        border-radius: 18px;
+      }
+
+      .calendar-day {
+        width: 105px;
+        height: 105px;
+        font-size: 3.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Elegant Cover -->
+  <section id="cover">
+    <div class="cover-card">
+
+      <div class="gold-corner corner-top-left"></div>
+      <div class="gold-corner corner-top-right"></div>
+      <div class="gold-corner corner-bottom-right"></div>
+      <div class="gold-corner corner-bottom-left"></div>
+
+      <!-- White floral decoration - top left -->
+      <svg class="flower-svg flower-top-left" viewBox="0 0 300 300" aria-hidden="true">
+        <defs>
+          <radialGradient id="petalWhite1" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="55%" stop-color="#f7f7f2"/>
+            <stop offset="100%" stop-color="#e4e8dd"/>
+          </radialGradient>
+          <linearGradient id="leafSage1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#e6efe1"/>
+            <stop offset="100%" stop-color="#91a88f"/>
+          </linearGradient>
+        </defs>
+
+        <path d="M50 210 C95 165, 145 120, 230 68" fill="none" stroke="#dbe7d8" stroke-width="5" stroke-linecap="round"/>
+        <path d="M70 188 C38 170, 34 137, 73 127 C112 139, 106 177, 70 188Z" fill="url(#leafSage1)" opacity="0.75"/>
+        <path d="M112 147 C76 126, 78 91, 119 84 C154 103, 147 137, 112 147Z" fill="url(#leafSage1)" opacity="0.68"/>
+        <path d="M165 105 C137 76, 149 45, 190 50 C218 78, 202 104, 165 105Z" fill="url(#leafSage1)" opacity="0.66"/>
+
+        <g transform="translate(74 83)">
+          <ellipse cx="50" cy="42" rx="24" ry="42" fill="url(#petalWhite1)" transform="rotate(-35 50 42)"/>
+          <ellipse cx="74" cy="47" rx="24" ry="42" fill="url(#petalWhite1)" transform="rotate(25 74 47)"/>
+          <ellipse cx="58" cy="68" rx="26" ry="42" fill="url(#petalWhite1)" transform="rotate(85 58 68)"/>
+          <ellipse cx="36" cy="61" rx="23" ry="38" fill="url(#petalWhite1)" transform="rotate(-85 36 61)"/>
+          <circle cx="55" cy="55" r="18" fill="#fffdf7"/>
+          <circle cx="55" cy="55" r="7" fill="#d6bd78"/>
+        </g>
+
+        <g transform="translate(142 36) scale(0.82)">
+          <ellipse cx="50" cy="42" rx="24" ry="42" fill="url(#petalWhite1)" transform="rotate(-35 50 42)"/>
+          <ellipse cx="74" cy="47" rx="24" ry="42" fill="url(#petalWhite1)" transform="rotate(25 74 47)"/>
+          <ellipse cx="58" cy="68" rx="26" ry="42" fill="url(#petalWhite1)" transform="rotate(85 58 68)"/>
+          <ellipse cx="36" cy="61" rx="23" ry="38" fill="url(#petalWhite1)" transform="rotate(-85 36 61)"/>
+          <circle cx="55" cy="55" r="18" fill="#fffdf7"/>
+          <circle cx="55" cy="55" r="7" fill="#d6bd78"/>
+        </g>
+      </svg>
+
+      <!-- White floral decoration - bottom right -->
+      <svg class="flower-svg flower-bottom-right" viewBox="0 0 300 300" aria-hidden="true">
+        <defs>
+          <radialGradient id="petalWhite2" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="55%" stop-color="#f7f7f2"/>
+            <stop offset="100%" stop-color="#e4e8dd"/>
+          </radialGradient>
+          <linearGradient id="leafSage2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#e6efe1"/>
+            <stop offset="100%" stop-color="#91a88f"/>
+          </linearGradient>
+        </defs>
+
+        <path d="M50 210 C95 165, 145 120, 230 68" fill="none" stroke="#dbe7d8" stroke-width="5" stroke-linecap="round"/>
+        <path d="M70 188 C38 170, 34 137, 73 127 C112 139, 106 177, 70 188Z" fill="url(#leafSage2)" opacity="0.75"/>
+        <path d="M112 147 C76 126, 78 91, 119 84 C154 103, 147 137, 112 147Z" fill="url(#leafSage2)" opacity="0.68"/>
+        <path d="M165 105 C137 76, 149 45, 190 50 C218 78, 202 104, 165 105Z" fill="url(#leafSage2)" opacity="0.66"/>
+
+        <g transform="translate(74 83)">
+          <ellipse cx="50" cy="42" rx="24" ry="42" fill="url(#petalWhite2)" transform="rotate(-35 50 42)"/>
+          <ellipse cx="74" cy="47" rx="24" ry="42" fill="url(#petalWhite2)" transform="rotate(25 74 47)"/>
+          <ellipse cx="58" cy="68" rx="26" ry="42" fill="url(#petalWhite2)" transform="rotate(85 58 68)"/>
+          <ellipse cx="36" cy="61" rx="23" ry="38" fill="url(#petalWhite2)" transform="rotate(-85 36 61)"/>
+          <circle cx="55" cy="55" r="18" fill="#fffdf7"/>
+          <circle cx="55" cy="55" r="7" fill="#d6bd78"/>
+        </g>
+      </svg>
+
+      <div class="cover-content">
+        <p class="cover-kicker">Wedding Invitation</p>
+
+        <h1 class="cover-names">
+          Mohamed<br>
+          &<br>
+          Mariem
+        </h1>
+
+        <div class="gold-ornament">✦ ❦ ✦</div>
+        <div class="cover-divider"></div>
+
+        <p class="cover-subtitle">
+          With love and joy, we invite you to celebrate our wedding day.
+        </p>
+
+        <p class="cover-date">29 December 2026 · 20:00</p>
+
+        <button class="open-button" type="button" onclick="openInvitation()">
+          Open Invitation
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Invitation -->
+  <main id="main">
+    <div class="page-shell">
+
+      <section class="hero">
+        <p class="hero-label">The Wedding Celebration Of</p>
+
+        <h1>Mohamed</h1>
+        <div class="divider"></div>
+        <h1>Mariem</h1>
+
+        <p class="date">29 December 2026 · 20:00</p>
+      </section>
+
+      <section class="card">
+        <svg class="card-flower card-flower-top" viewBox="0 0 160 160" aria-hidden="true">
+          <path d="M25 125 C50 92, 86 58, 132 24" fill="none" stroke="#b9c9b4" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="55" cy="88" rx="16" ry="30" fill="#dfe8dc" transform="rotate(-42 55 88)"/>
+          <ellipse cx="92" cy="55" rx="15" ry="28" fill="#aebfad" transform="rotate(-38 92 55)" opacity="0.82"/>
+          <g transform="translate(43 55)">
+            <ellipse cx="25" cy="20" rx="12" ry="22" fill="#ffffff" transform="rotate(-35 25 20)"/>
+            <ellipse cx="42" cy="22" rx="12" ry="22" fill="#f7f7f2" transform="rotate(30 42 22)"/>
+            <ellipse cx="33" cy="37" rx="13" ry="22" fill="#ffffff" transform="rotate(90 33 37)"/>
+            <circle cx="33" cy="29" r="9" fill="#fffdf7"/>
+            <circle cx="33" cy="29" r="4" fill="#c8ad67"/>
+          </g>
+        </svg>
+
+        <svg class="card-flower card-flower-bottom" viewBox="0 0 160 160" aria-hidden="true">
+          <path d="M25 125 C50 92, 86 58, 132 24" fill="none" stroke="#b9c9b4" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="55" cy="88" rx="16" ry="30" fill="#dfe8dc" transform="rotate(-42 55 88)"/>
+          <ellipse cx="92" cy="55" rx="15" ry="28" fill="#aebfad" transform="rotate(-38 92 55)" opacity="0.82"/>
+          <g transform="translate(43 55)">
+            <ellipse cx="25" cy="20" rx="12" ry="22" fill="#ffffff" transform="rotate(-35 25 20)"/>
+            <ellipse cx="42" cy="22" rx="12" ry="22" fill="#f7f7f2" transform="rotate(30 42 22)"/>
+            <ellipse cx="33" cy="37" rx="13" ry="22" fill="#ffffff" transform="rotate(90 33 37)"/>
+            <circle cx="33" cy="29" r="9" fill="#fffdf7"/>
+            <circle cx="33" cy="29" r="4" fill="#c8ad67"/>
+          </g>
+        </svg>
+
+        <span class="small-flower">❦</span>
+        <p>
+          We are delighted to invite you to celebrate our wedding.<br><br>
+          Your presence will make this special day even more meaningful and unforgettable.<br><br>
+          We look forward to sharing this beautiful evening with you.<br><br>
+          <strong>Venue:</strong><br>
+          Dar Bouraoui<br>
+          Salle YANI<br>
+          Carthage, Tunisia
+        </p>
+      </section>
+
+      <!-- Fancy calendar section before countdown -->
+      <section class="card calendar-card">
+        <span class="small-flower">✦</span>
+        <h2>Save The Date</h2>
+
+        <div class="real-calendar">
+
+ <div class="calendar-top">
+
+    <div class="calendar-rings">
+        <span></span>
+        <span></span>
+    </div>
+
+    <span>December</span>
+    <strong>2026</strong>
+
+</div>
+
+  <div class="calendar-weekdays">
+    <div>Mon</div>
+    <div>Tue</div>
+    <div>Wed</div>
+    <div>Thu</div>
+    <div>Fri</div>
+    <div>Sat</div>
+    <div>Sun</div>
+  </div>
+
+  <div class="calendar-grid">
+
+    <!-- Empty cells before December 1st -->
+    <div class="empty"></div>
+
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+    <div>11</div>
+    <div>12</div>
+    <div>13</div>
+
+    <div>14</div>
+    <div>15</div>
+    <div>16</div>
+    <div>17</div>
+    <div>18</div>
+    <div>19</div>
+    <div>20</div>
+
+    <div>21</div>
+    <div>22</div>
+    <div>23</div>
+    <div>24</div>
+    <div>25</div>
+    <div>26</div>
+    <div>27</div>
+
+    <div>28</div>
+    <div class="wedding-day">
+      29
+      <span>♥</span>
+    </div>
+    <div>30</div>
+    <div>31</div>
+
+  </div>
+
+  <div class="calendar-event">
+    Wedding Day • 20:00 • Dar Bouraoui
+  </div>
+
+</div>
+      </section>
+
+      <section class="card">
+        <svg class="card-flower card-flower-top" viewBox="0 0 160 160" aria-hidden="true">
+          <path d="M25 125 C50 92, 86 58, 132 24" fill="none" stroke="#b9c9b4" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="55" cy="88" rx="16" ry="30" fill="#dfe8dc" transform="rotate(-42 55 88)"/>
+          <ellipse cx="92" cy="55" rx="15" ry="28" fill="#aebfad" transform="rotate(-38 92 55)" opacity="0.82"/>
+          <g transform="translate(43 55)">
+            <ellipse cx="25" cy="20" rx="12" ry="22" fill="#ffffff" transform="rotate(-35 25 20)"/>
+            <ellipse cx="42" cy="22" rx="12" ry="22" fill="#f7f7f2" transform="rotate(30 42 22)"/>
+            <ellipse cx="33" cy="37" rx="13" ry="22" fill="#ffffff" transform="rotate(90 33 37)"/>
+            <circle cx="33" cy="29" r="9" fill="#fffdf7"/>
+            <circle cx="33" cy="29" r="4" fill="#c8ad67"/>
+          </g>
+        </svg>
+
+        <span class="small-flower">❦</span>
+        <h2>Countdown</h2>
+
+        <div class="countdown">
+          <div><span id="d">0</span>Days</div>
+          <div><span id="h">0</span>Hours</div>
+          <div><span id="m">0</span>Minutes</div>
+          <div><span id="s">0</span>Seconds</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <svg class="card-flower card-flower-bottom" viewBox="0 0 160 160" aria-hidden="true">
+          <path d="M25 125 C50 92, 86 58, 132 24" fill="none" stroke="#b9c9b4" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="55" cy="88" rx="16" ry="30" fill="#dfe8dc" transform="rotate(-42 55 88)"/>
+          <ellipse cx="92" cy="55" rx="15" ry="28" fill="#aebfad" transform="rotate(-38 92 55)" opacity="0.82"/>
+          <g transform="translate(43 55)">
+            <ellipse cx="25" cy="20" rx="12" ry="22" fill="#ffffff" transform="rotate(-35 25 20)"/>
+            <ellipse cx="42" cy="22" rx="12" ry="22" fill="#f7f7f2" transform="rotate(30 42 22)"/>
+            <ellipse cx="33" cy="37" rx="13" ry="22" fill="#ffffff" transform="rotate(90 33 37)"/>
+            <circle cx="33" cy="29" r="9" fill="#fffdf7"/>
+            <circle cx="33" cy="29" r="4" fill="#c8ad67"/>
+          </g>
+        </svg>
+
+        <span class="small-flower">✦</span>
+        <h2>Confirm Your Presence</h2>
+
+        <form onsubmit="submitForm(event)">
+          <input id="name" type="text" placeholder="Full Name" autocomplete="name" required>
+          <input id="guests" type="number" min="1" inputmode="numeric" placeholder="Number of Guests" required>
+
+          <select id="attend">
+            <option value="I will attend">I will attend</option>
+            <option value="I cannot attend">I cannot attend</option>
+          </select>
+
+          <button class="primary-button" type="submit">
+            Send My Response
+          </button>
+
+          <p id="thanks"></p>
+        </form>
+      </section>
+
+      <section class="card">
+        <span class="small-flower">❦</span>
+        <h2>Location</h2>
+
+        <iframe
+          src="https://maps.google.com/maps?q=Dar%20Bouarai%20Carthage%20Tunisia&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Dar Bouarai Carthage Tunisia map">
+        </iframe>
+
+        <p class="map-note">
+          If the map does not open correctly on Android, please use the button below.
+        </p>
+
+        <a
+          class="map-button"
+          href="https://www.google.com/maps/search/?api=1&query=Dar%20Bouarai%20Carthage%20Tunisia"
+          target="_blank"
+          rel="noopener noreferrer">
+          Open Location in Google Maps
+        </a>
+      </section>
+      <section class="card gift-card">
+
+    <span class="small-flower">❦</span>
+
+    <h2>Gifts</h2>
+
+    <p class="gift-text">
+    Your presence at our wedding is the greatest gift we could ask for.
+    <br><br>
+    For those who wish to celebrate the occasion with an additional gesture,
+    gift details are available below , thank you all ! .
+</p>
+
+    <button class="gift-button" onclick="toggleGiftDetails()">
+        View Gift Information
+    </button>
+
+    <div id="giftDetails" class="gift-details">
+        <p>
+            <strong>Account Name:</strong><br>
+            Mohamed Ouni
+        </p>
+
+        <p>
+            <strong>IBAN:</strong><br>
+               <span class="bank-details">
+            BE63 9678 6340 1208
+                </span>
+        </p>
+
+        <p>
+            <strong>BIC / SWIFT:</strong><br>
+             <span class="bank-details">
+            TRWIBEB1XXX
+             </span>
+        </p>
+    </div>
+
+</section>
+
+      <div class="footer-note">
+        With love, Mohamed & Mariem
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Music Player -->
+  <div class="music-player" id="musicPlayer">
+    <button type="button" onclick="toggleMusic()" id="musicButton">▶</button>
+  </div>
+
+  <!-- Correct Flask static music path -->
+  <audio id="audio" preload="auto" loop>
+    <source src="{{ url_for('static', filename='music.mp3') }}" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKa-6MNVQvIoSk3RDmHDQhHvmS2Q-6-jnHaAt359yrCSyyZHTvOkIhmIwOzuql4Fb6/exec";
+
+    let countdownTimer;
+
+    window.addEventListener("load", function () {
+      countdown();
+    });
+    function toggleGiftDetails() {
+    const details = document.getElementById("giftDetails");
+
+    if (details.style.display === "block") {
+        details.style.display = "none";
+    } else {
+        details.style.display = "block";
+    }
+}
+
+    function openInvitation() {
+      const audio = document.getElementById("audio");
+      const musicButton = document.getElementById("musicButton");
+
+      document.getElementById("cover").style.display = "none";
+      document.getElementById("main").style.display = "block";
+      document.getElementById("musicPlayer").style.display = "flex";
+
+      window.scrollTo(0, 0);
+
+      audio.volume = 0.5;
+
+      audio.play()
+        .then(function () {
+          musicButton.innerText = "❚❚";
+        })
+        .catch(function (error) {
+          musicButton.innerText = "▶";
+          console.log("Audio play error:", error);
+        });
+    }
+
+    function toggleMusic() {
+      const audio = document.getElementById("audio");
+      const button = document.getElementById("musicButton");
+
+      if (audio.paused) {
+        audio.play()
+          .then(function () {
+            button.innerText = "❚❚";
+          })
+          .catch(function (error) {
+            console.log("Audio play error:", error);
+          });
+      } else {
+        audio.pause();
+        button.innerText = "▶";
+      }
+    }
+
+    function countdown() {
+      const target = new Date("2026-12-29T20:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const diff = target - now;
+
+        if (diff <= 0) {
+          document.getElementById("d").innerText = "0";
+          document.getElementById("h").innerText = "0";
+          document.getElementById("m").innerText = "0";
+          document.getElementById("s").innerText = "0";
+
+          if (countdownTimer) clearInterval(countdownTimer);
+          return;
+        }
+
+        document.getElementById("d").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById("h").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        document.getElementById("m").innerText = Math.floor((diff / (1000 * 60)) % 60);
+        document.getElementById("s").innerText = Math.floor((diff / 1000) % 60);
+      }
+
+      updateCountdown();
+      countdownTimer = setInterval(updateCountdown, 1000);
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const guests = document.getElementById("guests").value.trim();
+      const attendance = document.getElementById("attend").value;
+      const thanks = document.getElementById("thanks");
+
+      if (!name || !guests) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          guests: guests,
+          attendance: attendance,
+          date: new Date().toISOString()
+        })
+      });
+
+      thanks.innerText = "Thank you for your response 🤍";
+
+      document.getElementById("name").value = "";
+      document.getElementById("guests").value = "";
+      document.getElementById("attend").value = "I will attend";
+    }
+  </script>
+
+</body>
+</html>
+
+  <meta name="description" content="Mohamed & Mariem Wedding Invitation - 29 December 2026" />
