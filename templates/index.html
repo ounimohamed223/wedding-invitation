@@ -10,7 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com"/>
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
     :root {
@@ -19,14 +21,18 @@
       --sage-soft: #aebfad;
       --sage-light: #dfe8dc;
       --sage-mist: #f3f7f0;
+
       --ivory: #fffdf8;
       --warm-ivory: #faf7ee;
       --white: #ffffff;
+
       --gold: #c8ad67;
       --gold-deep: #a88945;
       --gold-light: #ead9a8;
+
       --text-dark: #2f3a31;
       --text-muted: #687467;
+
       --shadow: rgba(47, 58, 49, 0.15);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
       --safe-right: env(safe-area-inset-right, 0px);
@@ -67,6 +73,10 @@
     button {
       cursor: pointer;
     }
+
+    /* =========================
+       COVER
+    ========================= */
 
     #cover {
       min-height: 100svh;
@@ -277,6 +287,10 @@
       border-color: var(--gold-light);
     }
 
+    /* =========================
+       MAIN BACKGROUND
+    ========================= */
+
     #main {
       display: none;
       min-height: 100svh;
@@ -377,6 +391,10 @@
       text-transform: uppercase;
     }
 
+    /* =========================
+       CARDS
+    ========================= */
+
     .card {
       position: relative;
       width: 100%;
@@ -461,6 +479,10 @@
       transform: rotate(180deg);
     }
 
+    /* =========================
+       FANCY CALENDAR
+    ========================= */
+
     .calendar-card {
       background:
         radial-gradient(circle at 20% 0%, rgba(234,217,168,0.20), transparent 34%),
@@ -494,64 +516,75 @@
     }
 
     .calendar-body {
-      padding: 26px 22px 28px;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 14px;
-    }
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    .calendar-side {
-      color: var(--sage);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+.calendar-side {
+  color: var(--sage);
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
-    .calendar-day {
-      position: relative;
-      width: 130px;
-      height: 130px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-      border: 3px solid rgba(200, 173, 103, 0.8);
-      background:
-        linear-gradient(180deg, #ffffff 0%, #faf7ee 100%);
-      color: var(--sage-dark);
-      font-family: 'Playfair Display', serif;
-      font-size: 4.3rem;
-      font-weight: 700;
-      box-shadow:
-        0 12px 28px rgba(79,102,82,0.12),
-        inset 0 0 0 6px rgba(234,217,168,0.18);
-    }
+.calendar-day {
+  position: relative;
+  width: 160px;
+  height: 170px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(200,173,103,0.55);
+  box-shadow:
+    0 18px 35px rgba(47,58,49,0.15),
+    0 4px 10px rgba(0,0,0,0.08);
+}
 
-    .calendar-day::before {
-      content: "";
-      position: absolute;
-      top: 13px;
-      left: 22px;
-      right: 22px;
-      height: 2px;
-      border-radius: 20px;
-      background: linear-gradient(90deg, transparent, rgba(200, 173, 103, 0.75), transparent);
-    }
+.calendar-day::before {
+  content: "DECEMBER";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    var(--sage-dark),
+    var(--sage)
+  );
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
 
-    .calendar-day::after {
-      content: "";
-      position: absolute;
-      top: -6px;
-      left: 24px;
-      right: 24px;
-      height: 10px;
-      background:
-        radial-gradient(circle at 8px 50%, var(--gold) 0 3px, transparent 4px),
-        radial-gradient(circle at 50% 50%, var(--gold) 0 3px, transparent 4px),
-        radial-gradient(circle at calc(100% - 8px) 50%, var(--gold) 0 3px, transparent 4px);
-    }
+.calendar-day::after {
+  content: "";
+  position: absolute;
+  top: 42px;
+  left: 0;
+  right: 0;
+  border-top: 1px solid rgba(200,173,103,0.30);
+}
+
+.calendar-day span {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--sage-dark);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
 
     .calendar-footer {
       padding: 0 20px 22px;
@@ -566,6 +599,10 @@
       margin: 0 auto 18px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
+
+    /* =========================
+       COUNTDOWN
+    ========================= */
 
     .countdown {
       position: relative;
@@ -678,6 +715,10 @@
       font-size: clamp(2rem, 8vw, 3rem);
     }
 
+    /* =========================
+       MUSIC PLAYER
+    ========================= */
+
     .music-player {
       position: fixed;
       right: max(18px, calc(16px + var(--safe-right)));
@@ -723,48 +764,6 @@
 
       .calendar-side {
         font-size: 1rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: clamp(3.2rem, 14vw, 5rem);
-      }
-
-      .cover-names {
-        font-size: clamp(3.5rem, 15vw, 6rem);
-      }
-
-      .calendar-wrapper {
-        width: 100%;
-      }
-
-      .calendar-day {
-        width: 110px;
-        height: 110px;
-        font-size: 3.5rem;
-      }
-
-      iframe {
-        height: 260px;
-      }
-
-      .countdown {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .countdown div {
-        padding: 14px 8px;
-      }
-
-      .open-button,
-      .primary-button,
-      .map-button {
-        width: 100%;
-      }
-
-      .card {
-        padding: 28px 18px;
       }
     }
 
@@ -836,34 +835,6 @@
         width: 105px;
         height: 105px;
         font-size: 3.2rem;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .calendar-day {
-        width: 92px;
-        height: 92px;
-        font-size: 2.8rem;
-      }
-
-      .calendar-header {
-        font-size: 0.8rem;
-      }
-
-      .calendar-footer {
-        font-size: 1rem;
-      }
-
-      .card h2 {
-        font-size: 1.5rem;
-      }
-
-      .card p {
-        font-size: 1rem;
-      }
-
-      .calendar-side {
-        font-size: 0.92rem;
       }
     }
   </style>
@@ -1035,7 +1006,7 @@
 
           <div class="calendar-body">
             <div class="calendar-side">Tuesday</div>
-            <div class="calendar-day">29</div>
+            <div class="calendar-day">2  <span>29</span>3</div>
             <div class="calendar-side">20:00</div>
           </div>
 
@@ -1110,14 +1081,22 @@
         <span class="small-flower">❦</span>
         <h2>Location</h2>
 
-        https://maps.google.com/maps?q=Dar%20Bouarai%20Carthage%20Tunisia&t=&z=16&ie=UTF8&iwloc=&output=embed
+        <iframe
+          src="https://maps.google.com/maps?q=Dar%20Bouarai%20Carthage%20Tunisia&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Dar Bouarai Carthage Tunisia map">
         </iframe>
 
         <p class="map-note">
           If the map does not open correctly on Android, please use the button below.
         </p>
 
-        https://www.google.com/maps/search/?api=1&query=Dar%20Bouarai%20Carthage%20Tunisia
+        <a
+          class="map-button"
+          href="https://www.google.com/maps/search/?api=1&query=Dar%20Bouarai%20Carthage%20Tunisia"
+          target="_blank"
+          rel="noopener noreferrer">
           Open Location in Google Maps
         </a>
       </section>
@@ -1136,7 +1115,7 @@
 
   <!-- Correct Flask static music path -->
   <audio id="audio" preload="auto" loop>
-     }}" type="audio/mpeg">
+    <source src="{{ url_for('static', filename='music.mp3') }}" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
@@ -1255,3 +1234,4 @@
 </html>
 
   <meta name="description" content="Mohamed & Mariem Wedding Invitation - 29 December 2026" />
+
